@@ -1,9 +1,25 @@
 -- Mod 9 Data Analysis
 
 -- List the employee number, last name, first name, sex, and salary of each employee
+CREATE VIEW employ_salary AS
+SELECT e.emp_no, e.last_name, e.first_name, e.sex, s.salary
+FROM employees e
+  JOIN salaries s
+  ON (e.emp_no = s.emp_no);
+  
+SELECT *
+FROM employ_salary;
 
 
 -- List the first name, last name, and hire date for the employees who were hired in 1986
+CREATE VIEW hire_1986 AS
+SELECT  first_name, last_name, YEAR(hire_date) AS hire_year
+FROM employees;
+		
+		WHERE hire_year = '1986'
+	
+SELECT *
+FROM hire_1986;
 
 
 -- List the manager of each department along with their department number, department name, employee number, last name, and first name
